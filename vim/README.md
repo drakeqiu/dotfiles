@@ -1,0 +1,5 @@
+# vim config
+
+## plugins
+
+- NERDTree

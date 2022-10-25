@@ -1,0 +1,17 @@
+alias vi="vim"
+alias grep="grep --color=auto"
+alias mkdir="mkdir -p"
+alias ra="ranger"
+alias sudo="sudo -E"
+#alias mvim="mvim -v"
+alias -s html=vi
+alias -s rb=vi
+alias -s py=vi
+alias -s js=vi
+alias -s c=vi
+alias -s java=vi
+alias -s txt=vi
+alias -s gz='tar -xzvf'
+alias -s tgz='tar -xzvf'
+alias -s zip='unzip'
+alias -s bz2='tar -xjvf'

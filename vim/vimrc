@@ -1,0 +1,68 @@
+"-------------------
+" Plugins
+"-------------------
+ call plug#begin()
+ Plug 'ap/vim-css-color'
+ Plug 'vim-airline/vim-airline'
+ Plug 'vim-airline/vim-airline-themes'
+ Plug 'preservim/nerdtree'
+ Plug 'ctrlpvim/ctrlp.vim'
+ Plug 'mattn/emmet-vim'
+ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+ Plug 'tpope/vim-surround'
+ Plug 'tpope/vim-repeat'
+ Plug 'terryma/vim-multiple-cursors'
+ Plug 'tomtom/tcomment_vim'
+
+ Plug 'preservim/tagbar'
+ Plug 'mileszs/ack.vim'
+ Plug 'joshdick/onedark.vim'
+ call plug#end()
+
+"-------------------
+" Settings
+"-------------------
+set nocompatible
+set clipboard=unnamed
+set noswapfile        " Don't use swapfile
+set nobackup          " Don't create annoying backup files
+set hidden            " Buffer should still exist if window is closed
+set nobomb            " no BOM(Byte Order Mark)
+set mouse=a
+set autoread          " Automatically read changed files
+set autoindent        " Enable Autoindent
+set pastetoggle=<F2>
+
+"-------------------
+" scroll
+"-------------------
+set scrolloff=3
+
+"-------------------
+" tab and space
+"-------------------
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+
+"-------------------
+" split window
+"-------------------
+set splitbelow      " Horizontal windows should be split to bottom
+set splitright      " Vertical windows should be split to right
+
+"-------------------
+" Filetype and Encoding
+"-------------------
+filetype off                " Reset filetype detection first...
+filetype indent plugin on   " ... and enable filetype detection
+
+" file encoding
+set encoding=utf-8
+scriptencoding utf-8
+
+"-------------------
+" key mapping
+"-------------------
+let maplearder=","
+let g:mapleader=","

@@ -1,0 +1,5 @@
+# basic config
+require "basic"
+
+require "keybindings"
+
