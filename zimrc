@@ -114,3 +114,7 @@ zmodule romkatv/powerlevel10k
 zmodule wting/autojump
 zmodule zimfw/fzf
 zmodule jeffreytse/zsh-vi-mode
+
+# alias for adopting exa instead of ls
+zmodule DarrinTisdale/zsh-aliases-exa
+
