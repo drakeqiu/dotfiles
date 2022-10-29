@@ -17,6 +17,7 @@ brew 'tmux'
 brew 'autojump'
 brew 'ripgrep'
 brew 'zsh-vi-mode'
+brew 'tree-sitter'
 
 cask 'google-chrome'
 cask 'visual-studio-code'
