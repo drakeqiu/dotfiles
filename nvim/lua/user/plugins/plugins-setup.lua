@@ -63,6 +63,8 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp-document-symbol'
   use "onsails/lspkind-nvim"
 
+  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+
   -- fuzzy finding w/ telescope
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
   use {
@@ -79,11 +81,17 @@ return packer.startup(function(use)
   -- highlight and symbols
   use 'nvim-treesitter/nvim-treesitter'
   use "p00f/nvim-ts-rainbow"
+
+  -- auto closing
   use {
     'windwp/nvim-autopairs',
     config = function() require("nvim-autopairs").setup{}
     end
   }
+  use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
+
+  -- commenting with gc
+  use("numToStr/Comment.nvim")
 
   -- git integration
   use 'lewis6991/gitsigns.nvim'
@@ -107,6 +115,8 @@ return packer.startup(function(use)
 
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
+
+  use("szw/vim-maximizer") -- maximizes and restores current window
 
   use ({
     "akinsho/bufferline.nvim",
