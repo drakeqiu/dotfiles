@@ -18,6 +18,7 @@
 
 - shell:
   - git submodule sync --recursive
-  - git update0submodules
+  - source ./homebrew/brew.sh
+  - git update-submodules
   - >
     git clean all -f

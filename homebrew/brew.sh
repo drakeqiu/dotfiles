@@ -2,6 +2,8 @@
 
 [[ "$OSTYPE" =~ ^darwin ]] || exit 0
 
+export HOMEBREW_CORE_GIT_REMOTE="https://mirrors.ustc.edu.cn/homebrew-core.git"
+
 which -s brew > /dev/null
 if [[ $? != 0 ]]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"

@@ -25,4 +25,4 @@ cask 'font-hack-nerd-font'
 cask 'font-fira-code-nerd-font'
 cask 'wechat'
 cask 'qq'
-
+cask 'alacritty'
