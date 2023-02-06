@@ -1,11 +1,6 @@
 # Setup fzf
 # ---------
-export FZF_HOME=""
-if [[ $OSTYPE == 'darwin'* ]]; then
-  FZF_HOME=$(brew --prefix)/opt/fzf
-else
-  FZF_HOME=$HOME/.fzf
-fi
+export FZF_HOME="$HOME/.fzf"
 
 if [[ ! "$PATH" == *$FZF_HOME/bin* ]]; then
   path_prepend "$FZF_HOME/bin"
