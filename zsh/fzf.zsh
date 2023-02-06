@@ -2,6 +2,10 @@
 # ---------
 export FZF_HOME="$HOME/.fzf"
 
+if [[ ! -f $FZF_HOME/bin/fzf ]]; then
+  $FZF_HOME/install --bin
+fi
+
 if [[ ! "$PATH" == *$FZF_HOME/bin* ]]; then
   path_prepend "$FZF_HOME/bin"
 fi
