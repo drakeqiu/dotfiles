@@ -43,6 +43,8 @@ packer.init({
 return packer.startup(function(use)
   use 'wbthomason/packer.nvim'
   -- My plugins here
+  -- lua functions
+  use("nvim-lua/plenary.nvim") 
   -- colorschemes
   use 'sainnhe/everforest'
   use 'morhetz/gruvbox'
@@ -51,6 +53,10 @@ return packer.startup(function(use)
   -- lspconfig
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+
+  -- managing & installing lsp servers, linters & formatters
+  use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+  use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
 
   -- cmp completion and other enhance
   use 'hrsh7th/nvim-cmp'
@@ -63,7 +69,6 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp-document-symbol'
   use "onsails/lspkind-nvim"
 
-  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
   -- fuzzy finding w/ telescope
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
@@ -78,6 +83,11 @@ return packer.startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'rafamadriz/friendly-snippets'
 
+  -- formatting & linting
+  use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+  use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+
+  -- treesitter configuration
   -- highlight and symbols
   use 'nvim-treesitter/nvim-treesitter'
   use "p00f/nvim-ts-rainbow"
