@@ -1,4 +1,5 @@
 source $HOME/.shell/functions.sh
+source $HOME/.shell/alias.sh
 
 source $HOME/.zsh/settings.zsh
 source $HOME/.zsh/plugins_before.zsh
