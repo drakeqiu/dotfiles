@@ -52,7 +52,21 @@ return packer.startup(function(use)
 
   -- lspconfig
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
+  use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+  }) -- enhanced lsp uis
+  use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" })
+  use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+  use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+  use("simrat39/rust-tools.nvim") -- rust server
+
+  -- use 'williamboman/nvim-lsp-installer'
+   -- vs-code like icons
+  use("nvim-tree/nvim-web-devicons")
 
   -- managing & installing lsp servers, linters & formatters
   use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
@@ -64,7 +78,6 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
-  use 'saadparwaiz1/cmp_luasnip'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'hrsh7th/cmp-nvim-lsp-document-symbol'
   use "onsails/lspkind-nvim"
@@ -81,7 +94,8 @@ return packer.startup(function(use)
 
   -- some snippet
   use 'L3MON4D3/LuaSnip'
-  use 'rafamadriz/friendly-snippets'
+  use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  use("rafamadriz/friendly-snippets") -- useful snippets
 
   -- formatting & linting
   use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
@@ -89,7 +103,14 @@ return packer.startup(function(use)
 
   -- treesitter configuration
   -- highlight and symbols
-  use 'nvim-treesitter/nvim-treesitter'
+  -- use 'nvim-treesitter/nvim-treesitter'
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    run = function()
+      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+      ts_update()
+    end,
+  })
   use "p00f/nvim-ts-rainbow"
 
   -- auto closing
@@ -132,6 +153,16 @@ return packer.startup(function(use)
     "akinsho/bufferline.nvim",
     tag = "v3.*",
     requires = {"kyazdani42/nvim-web-devicons", opt = true}
+  })
+
+  -- markdown preview
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
   })
 
   -- Automatically set up your configuration after cloning packer.nvim
