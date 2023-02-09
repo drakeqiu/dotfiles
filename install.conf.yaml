@@ -3,7 +3,7 @@
       create: true
       relink: true
 
-- clean: ['~', '~/.config']
+- clean: ["~", "~/.config"]
 
 - link:
     ~/.zshrc: zshrc
@@ -16,10 +16,10 @@
     ~/.config/alacritty: alacritty
     ~/.fzf:
 
-
 - shell:
-  - git submodule sync --recursive
-  - source ./homebrew/brew.sh
-  - git update-submodules
-  - >
-    git clean all -f
+    - git submodule sync --recursive
+    - source $HOME/.zshrc
+    - source ./homebrew/brew.sh
+    - git update-submodules
+    - >
+      git clean all -f
