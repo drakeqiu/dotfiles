@@ -5,6 +5,7 @@ alias mkdir="mkdir -p"
 alias ra="ranger"
 alias sudo="sudo -E"
 alias nvi="nvim"
+alias vimdiff="nvim -d"
 #alias mvim="mvim -v"
 alias -s html=vi
 alias -s rb=vi
