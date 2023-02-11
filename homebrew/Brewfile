@@ -1,9 +1,12 @@
+#tap 'homebrew/cask-fonts'
+#tap 'homebrew/bundle'
+
 brew 'zsh'
 brew 'python3'
 brew 'vim'
 brew 'neovim'
 brew 'llvm'
-brew 'deno'
+#brew 'deno'
 brew 'pyright'
 brew 'exa'
 brew 'tree'

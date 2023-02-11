@@ -57,6 +57,9 @@ opt.signcolumn = "yes"
 
 opt.errorbells = false
 
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 opt.shortmess:append "c"
 opt.shortmess:append "I"
 opt.iskeyword:append "-"
@@ -65,6 +68,3 @@ opt.formatoptions:remove "cro"
 vim.api.nvim_command("set whichwrap+=<,>,[,],h,l")
 vim.api.nvim_command("filetype off")
 vim.api.nvim_command("filetype indent plugin on")
-
-
-
