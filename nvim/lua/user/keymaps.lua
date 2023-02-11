@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 local keymap = vim.keymap
+local opts = {noremap = true, silent = true}
 
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
@@ -31,6 +32,9 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window max
 -- nvim-tree
 keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 
+-- neo-tree
+--keymap.set("n", "<leader>e", ":NeoTreeFloatToggle<CR>", opts) -- toggle file explorer
+
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
@@ -38,7 +42,8 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string u
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
 keymap.set("n", "<leader>lds", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
-
+-- telescope file browser
+-- keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser<cr>") -- list all functions/structs/classes/modules in the current buffer
 -- telescope git commands
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]

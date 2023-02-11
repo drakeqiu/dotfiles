@@ -46,7 +46,6 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
-
 opt.hlsearch = true
 opt.incsearch = true
 opt.ignorecase = true
@@ -59,11 +58,12 @@ opt.errorbells = false
 
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevel = 20
 
-opt.shortmess:append "c"
-opt.shortmess:append "I"
-opt.iskeyword:append "-"
-opt.formatoptions:remove "cro"
+opt.shortmess:append("c")
+opt.shortmess:append("I")
+opt.iskeyword:append("-")
+opt.formatoptions:remove("cro")
 
 vim.api.nvim_command("set whichwrap+=<,>,[,],h,l")
 vim.api.nvim_command("filetype off")

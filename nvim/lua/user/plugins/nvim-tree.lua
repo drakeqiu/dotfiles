@@ -12,6 +12,15 @@ vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 -- configure nvim-tree
 nvimtree.setup({
+  disable_netrw = true,
+  hijack_cursor = true,
+  hijack_netrw = false,
+  hijack_unnamed_buffer_when_opening = false,
+  ignore_buffer_on_setup = false,
+  open_on_setup_file = false,
+  open_on_tab = false,
+  sort_by = "name",
+  update_cwd = false,
   view = {
     mappings = {
       list = {
@@ -22,14 +31,26 @@ nvimtree.setup({
   },
   -- change folder arrow icons
   renderer = {
+    group_empty = true,
     icons = {
-      glyphs = {
-        folder = {
-          arrow_closed = "", -- arrow when folder is closed
-          arrow_open = "", -- arrow when folder is open
-        },
+      webdev_colors = true,
+    },
+    indent_markers = {
+      enable = true,
+      icons = {
+        corner = "└ ",
+        edge = "│ ",
+        none = "  ",
       },
     },
+    -- icons = {
+      -- glyphs = {
+         -- folder = {
+          -- arrow_closed = "", -- arrow when folder is closed
+          -- arrow_open = "", -- arrow when folder is open
+        -- },
+      -- },
+     -- },
   },
   -- disable window_picker for
   -- explorer to work well with
