@@ -8,5 +8,3 @@ source $HOME/.zsh/plugins.zsh
 source $HOME/.zsh/prompt.zsh
 
 source $HOME/.shell/bootstrap.sh
-
-source $HOME/.zsh/fzf.zsh

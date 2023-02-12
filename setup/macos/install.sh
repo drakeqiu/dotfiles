@@ -1,6 +1,12 @@
-#!/bin/bash
+#!/bin/sh
 
 [[ "$OSTYPE" =~ ^darwin ]] || exit 0
+
+xcode-select -p > /dev/null
+if [[ $? != 0 ]]; then
+    xcode-select --install
+fi
+
 which -s brew > /dev/null
 if [[ $? != 0 ]]; then
     # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
@@ -28,7 +34,7 @@ if [[ $? != 0 ]]; then
     brew update
 fi
 
-DIR="$(cd "$(dirname "${BASE_SOURCE[0]}" )" > /dev/null 2>&1 && pwd)"
+DIR="$(cd "$(dirname "$0" )" > /dev/null 2>&1 && pwd)"
 
 export HOMEBREW_API_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api"
 export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
@@ -41,4 +47,8 @@ export HOMEBREW_PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple"
 # export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles"
 # export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api"
 brew update
-brew bundle -v --file=${DIR}/homebrew/Brewfile
+brew bundle -v --file=${DIR}/macos/Brewfile
+
+# fzf
+$(brew --prefix)/opt/fzf/install --bin
+
