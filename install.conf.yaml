@@ -6,6 +6,7 @@
 - clean: ["~", "~/.config"]
 
 - link:
+    ~/.zprofile:
     ~/.zshrc: zshrc
     ~/.shell:
     ~/.zsh:
@@ -19,7 +20,7 @@
 - shell:
     - git submodule sync --recursive
     - source $HOME/.zshrc
-    - source ./homebrew/brew.sh
+    # - source ./homebrew/brew.sh
     - git update-submodules
     - >
       git clean all -f

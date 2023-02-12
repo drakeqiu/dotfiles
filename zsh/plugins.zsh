@@ -1,7 +1,6 @@
 source ~/.zplug/init.zsh
 
-#zplug "romkatv/powerlevel10k", as:theme, depth:1
-zplug romkatv/powerlevel10k, as:theme, depth:1
+zplug "romkatv/powerlevel10k", as:theme, depth:1
 # zplug "sbugzu/gruvbox-zsh", as:theme, depth:1
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "zsh-users/zsh-completions"
