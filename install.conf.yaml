@@ -9,7 +9,8 @@
     ~/.zprofile:
     ~/.zshrc: zshrc
     ~/.tmux:
-    ~/.tmux.conf:
+    # ~/.tmux.conf: tmux/.tmux.conf
+    # ~/.tmux.conf.local:
     ~/.shell:
     ~/.zsh:
     ~/.pip:
