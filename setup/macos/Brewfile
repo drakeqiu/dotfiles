@@ -23,6 +23,7 @@ brew 'autojump'
 brew 'ripgrep'
 brew 'zsh-vi-mode'
 brew 'tree-sitter'
+brew 'luarocks'
 
 cask 'google-chrome'
 cask 'visual-studio-code'

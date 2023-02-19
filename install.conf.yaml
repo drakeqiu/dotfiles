@@ -8,10 +8,11 @@
 - link:
     ~/.zprofile:
     ~/.zshrc: zshrc
+    # ~/.tmux.conf:
     ~/.shell:
     ~/.zsh:
     ~/.pip:
-    ~/.npm:
+    ~/.npmrc:
     ~/.p10k-holy.zsh: themes/p10k-holy.zsh
     ~/.p10k-bubbles.zsh: themes/p10k-bubbles.zsh
     ~/.p10k-tony-lambiris.zsh: themes/p10k-tony-lambiris.zsh
@@ -22,7 +23,7 @@
 - shell:
     - git submodule sync --recursive
     - source $HOME/.zshrc
-    - ./setup/run.sh
+    # - ./setup/run.sh
     - git update-submodules
     - >
       git clean all -f

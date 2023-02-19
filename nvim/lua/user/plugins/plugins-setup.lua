@@ -45,6 +45,11 @@ return packer.startup(function(use)
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
+		requires = {
+			{ "nvim-tree/nvim-web-devicons" },
+			--Please make sure you install markdown and markdown_inline parser
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
 	}) -- enhanced lsp uis
 	use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
@@ -99,7 +104,6 @@ return packer.startup(function(use)
 	-- colorschemes
 	-- use("sainnhe/everforest")
 	use("morhetz/gruvbox")
-	use("sainnhe/gruvbox-material")
 	-- use("folke/tokyonight.nvim")
 
 	-- symbols outline
@@ -112,6 +116,22 @@ return packer.startup(function(use)
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
+
+	use({
+		"folke/noice.nvim",
+		config = function()
+			require("noice").setup()
+		end,
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	})
+
+	use({
+		"SmiteshP/nvim-navic",
+		requires = "neovim/nvim-lspconfig",
 	})
 
 	-- file explorer
