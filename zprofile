@@ -7,9 +7,10 @@ export SCALA_HOME=/usr/local/scala
 export PATH=$PATH:$SCALA_HOME/bin
 # go env
 export GO_HOME=/usr/local/go
+export GOPATH=$HOME/go
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn,direct
-export PATH=$PATH:$GO_HOME/bin
+export PATH=$PATH:$GO_HOME/bin:$GOPATH/bin
 
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 
