@@ -114,6 +114,13 @@ lspconfig["cssls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
+
+lspconfig["marksman"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "markdown" },
+})
+
 -- configure emmet language server
 lspconfig["emmet_ls"].setup({
 	capabilities = capabilities,

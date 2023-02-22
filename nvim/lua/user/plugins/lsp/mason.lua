@@ -31,6 +31,7 @@ mason_lspconfig.setup({
 		"clangd",
 		"gopls",
 		"bash-language-server",
+		"marksman",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed
