@@ -15,6 +15,7 @@
     ~/.zsh:
     ~/.pip:
     ~/.npmrc:
+    ~/.yarnrc:
     ~/.p10k-holy.zsh: themes/p10k-holy.zsh
     ~/.p10k-bubbles.zsh: themes/p10k-bubbles.zsh
     ~/.p10k-tony-lambiris.zsh: themes/p10k-tony-lambiris.zsh
