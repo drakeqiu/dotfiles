@@ -153,8 +153,10 @@ lspconfig["gopls"].setup({
 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
 	settings = {
 		gopls = {
+			experimentalPostfixCompletions = true,
 			analyses = {
 				unusedparams = true,
+				shadow = true,
 			},
 			staticcheck = true,
 		},
