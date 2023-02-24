@@ -36,6 +36,7 @@ local keymap = vim.keymap -- for conciseness
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
+	client.offsetEncoding = "utf-8"
 	-- nvim-navic settings
 	navic.attach(client, bufnr)
 
@@ -67,6 +68,8 @@ end
 
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
+capabilities.textDocument.semanticHighlighting = true
+capabilities.offsetEncoding = "utf-8"
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 -- (not in youtube nvim video)
