@@ -1,6 +1,12 @@
-local t_status, trouble = pcall(require, "trouble")
-if not t_status then
+local status_ok, trouble = pcall(require, "trouble")
+
+if not status_ok then
+	vim.notify("trouble don't exists")
 	return
 end
 
-trouble.setup()
+trouble.setup({
+	-- your configuration comes here
+	-- or leave it empty to use the default settings
+	-- refer to the configuration section below
+})
