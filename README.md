@@ -2,7 +2,8 @@
 
 [![CI status for macOS][ci badge macos]][ci link macos]
 
-These are the base dotfiles that I start with when I set up a new environment (for more specific local needs I use the [`*.local`]#local-settings) files).
+These are the base dotfiles that I start with when I set up a new environment
+(for more specific local needs I use the [`*.local`]#local-settings) files).
 
 ## Table of Contents
 

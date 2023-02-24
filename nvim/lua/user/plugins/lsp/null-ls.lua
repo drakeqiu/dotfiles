@@ -20,6 +20,8 @@ null_ls.setup({
 		formatting.prettier, -- js/ts formatter
 		formatting.stylua, -- lua formatter
 		formatting.gofumpt, -- go formatter
+		formatting.rustfmt, -- rust formatter
+		formatting.markdownlint, -- markdown formatter
 		-- formatting.gofmt, -- go formatter
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
@@ -30,6 +32,7 @@ null_ls.setup({
 		diagnostics.luacheck,
 		diagnostics.golangci_lint,
 		diagnostics.shellcheck,
+		diagnostics.markdownlint,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
