@@ -42,6 +42,13 @@ return packer.startup(function(use)
 
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
+	-- Visualize lsp progress
+	use({
+		"j-hui/fidget.nvim",
+		config = function()
+			require("fidget").setup()
+		end,
+	})
 	use({
 		"glepnir/lspsaga.nvim",
 		branch = "main",
@@ -52,7 +59,8 @@ return packer.startup(function(use)
 		},
 	}) -- enhanced lsp uis
 	use({ "folke/trouble.nvim", requires = "nvim-tree/nvim-web-devicons" })
-	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+	-- additional functionality for typescript server (e.g. rename file & update imports)
+	use("jose-elias-alvarez/typescript.nvim")
 	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
 	use("simrat39/rust-tools.nvim") -- rust server
 

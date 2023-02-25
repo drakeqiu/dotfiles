@@ -93,6 +93,29 @@ rt.setup({
 	},
 })
 
+-- configure rust analysis
+-- lspconfig["rust_analyzer"].setup({
+-- 	on_attach = on_attach,
+-- 	settings = {
+-- 		["rust-analyzer"] = {
+-- 			imports = {
+-- 				granularity = {
+-- 					group = "module",
+-- 				},
+-- 				prefix = "self",
+-- 			},
+-- 			cargo = {
+-- 				buildScripts = {
+-- 					enable = true,
+-- 				},
+-- 			},
+-- 			procMacro = {
+-- 				enable = true,
+-- 			},
+-- 		},
+-- 	},
+-- })
+
 local clangd_capabilities = cmp_nvim_lsp.default_capabilities()
 clangd_capabilities.textDocument.semanticHighlighting = true
 clangd_capabilities.offsetEncoding = "utf-8"
@@ -101,6 +124,21 @@ clangd_capabilities.offsetEncoding = "utf-8"
 lspconfig["clangd"].setup({
 	capabilities = clangd_capabilities,
 	on_attach = on_attach,
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--pch-storage=memory",
+		"--clang-tidy",
+		"--suggest-missing-includes",
+		"--cross-file-rename",
+		"--completion-style=detailed",
+	},
+	init_options = {
+		clangdFileStatus = true,
+		usePlaceholders = true,
+		completeUnimported = true,
+		semanticHighlighting = true,
+	},
 })
 
 -- configure css server
