@@ -20,6 +20,13 @@ To set up the dotfiles run the appropriate snippet in the terminal:
 | :---- | :----------------------------------------------------------------------------------- |
 | macOS | `bash -c "(curl -LsS https://raw.github.com/drakeqiu/dotfiles/main/src/install.sh)"` |
 
+### macOS
+
+```bash
+git clone --recursive https://github.com/drakeqiu/dotfiles.git
+./install
+```
+
 ## License
 
 The code is available under the [MIT license][license].
