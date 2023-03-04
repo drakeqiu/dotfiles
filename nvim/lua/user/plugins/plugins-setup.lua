@@ -114,9 +114,6 @@ return packer.startup(function(use)
 	use("morhetz/gruvbox")
 	-- use("folke/tokyonight.nvim")
 
-	-- symbols outline
-	use("simrat39/symbols-outline.nvim")
-
 	-- using packer.nvim
 	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 

@@ -24,6 +24,8 @@ brew 'ripgrep'
 brew 'zsh-vi-mode'
 brew 'tree-sitter'
 brew 'luarocks'
+brew 'cmake'
+brew 'cmake-docs'
 
 cask 'google-chrome'
 cask 'visual-studio-code'
