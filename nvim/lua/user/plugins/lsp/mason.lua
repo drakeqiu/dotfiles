@@ -30,7 +30,7 @@ mason_lspconfig.setup({
 		"emmet_ls",
 		"clangd",
 		"gopls",
-		"bash-language-server",
+		-- "bash-language-server",
 		"marksman",
 	},
 	-- auto-install configured servers (with lspconfig)
