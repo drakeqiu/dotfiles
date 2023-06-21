@@ -14,6 +14,11 @@ alias -s js=vi
 alias -s c=vi
 alias -s java=vi
 alias -s txt=vi
+#rust
+alias -s rs=vi
+alias -s toml=vi
+#go
+alias -s go=vi
 alias -s gz='tar -xzvf'
 alias -s tgz='tar -xzvf'
 alias -s zip='unzip'

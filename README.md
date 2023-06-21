@@ -27,6 +27,11 @@ git clone --recursive https://github.com/drakeqiu/dotfiles.git
 ./install
 ```
 
+```bash
+git clone --recursive --branch dev https://github.com/drakeqiu/dotfiles.git
+./install
+```
+
 ## License
 
 The code is available under the [MIT license][license].

@@ -1,56 +1,80 @@
-vim.g.mapleader = " "
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+local Util = require("user.util")
+
+local function map(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  -- @cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    opts = opts or {}
+    opts.silent = opts.silent ~= false
+    if opts.remap and not vim.g.vscode then
+      opts.remap = nil
+    end
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
+end
+
+-- better up/down
+map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
 -- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>")
+map("i", "jk", "<ESC>", { desc = "use jk to exit insert mode" })
+-- keymap.set("i", "jk", "<ESC>")
 
 -- clear search highlights
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+map({ "n" }, "<leader>nh", ":nohl<CR>")
 
 -- delete single character without copying into register
-keymap.set("n", "x", '"_x')
+map("n", "x", '"_x"', { desc = "Delete single character without copying into register" })
 
 -- window management
-keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
-keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
+map("n", "<leader>sh", "<C-w>s", { desc = "Split window below" })
+map("n", "<leader>sv", "<C-w>v", { desc = "Split window right" })
+map("n", "<leader>sx", ":close<CR>", { desc = "Close current split window" })
+map("n", "<leader>se", "<C-w>=", { desc = "Make split windows equal width & height" })
+map("n", "<Up>", "<cmd>resize +2<cr>", { desc = "Increase window height" })
+map("n", "<Down>", "<cmd>resize -2<cr>", { desc = "Decrease window height" })
+map("n", "<Left>", "<cmd>vertical resize -2<cr>", { desc = "Decrease window width" })
+map("n", "<Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase window width" })
 
-keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
-keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
-keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
-keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
+-- tab switch
+map("n", "<leader>to", ":tabnew<CR>", { desc = "Open new tab" })
+map("n", "<leader>tx", ":tabclose<CR>", { desc = "Close current tab" })
+map("n", "<leader>tn", ":tabn<CR>", { desc = "Go to next tab" })
+map("n", "<leader>tp", ":tabp<CR>", { desc = "Go to previous tab" })
 
 -- buffer switch
-keymap.set("n", "<leader>bn", ":bnext<CR>") -- open new tab
-keymap.set("n", "<leader>bp", ":bprevious<CR>") -- close current tab
-keymap.set("n", "<leader>bd", ":bdelete<CR>") --  go to next tab
+map("n", "<leader>bn", ":bnext<CR>", { desc = "Go to next buffer" })
+map("n", "<leader>bp", ":bprevious<CR>", { desc = "Go to previous buffer" })
+map("n", "<leader>bd", ":bdelete<CR>", { desc = "Close current buffer" })
+
+-- search
+map({ "i", "n" }, "<Esc>", "<cmd>noh<CR><Esc>", { desc = "Escape and clear hlsearch" })
+
+-- add undo break-points
+-- map("i", ",", ",<c-g>u")
+-- map("i", ".", ".<c-g>u")
+-- map("i", ";", ";<c-g>u")
+
+-- better indenting
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+map("n", "<", "v<g")
+map("n", ">", "v>g")
+
+-- others
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
 
 ----------------------
 -- Plugin Keybinds
 ----------------------
 
 -- vim-maximizer
---keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
-
--- nvim-tree
---keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+-- keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- neo-tree
---keymap.set("n", "<leader>e", ":NeoTreeFloatToggle<CR>", opts) -- toggle file explorer
-
--- telescope
---keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
---keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
---keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
---keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
---keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
---keymap.set("n", "<leader>lds", "<cmd>Telescope lsp_document_symbols<cr>") -- list all functions/structs/classes/modules in the current buffer
--- telescope file browser
--- keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser<cr>") -- list all functions/structs/classes/modules in the current buffer
--- telescope git commands
---keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
---keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
---keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
---keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
+-- keymap.set("n", "<leader>e", ":NeoTreeFloatToggle<CR>", opts) -- toggle file explorer

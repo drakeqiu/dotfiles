@@ -1,6 +1,11 @@
 # Setup fzf
 # ---------
-export FZF_HOME="$HOME/.fzf"
+FZF_HOME="$HOME/.fzf"
+
+if [[ ! -d $FZF_HOME ]]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  $FZF_HOME/install --bin
+fi
 
 if [[ ! -f $FZF_HOME/bin/fzf ]]; then
   $FZF_HOME/install --bin

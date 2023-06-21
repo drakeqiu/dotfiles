@@ -10,7 +10,11 @@
 # to the user's home directory starting with `~/`.
 import:
   # - ~/.config/alacritty/themes/snazzy.yaml
-  - ~/.config/alacritty/themes/gruvbox_material.yml
+  # - ~/.config/alacritty/themes/gruvbox_material.yml
+  - ~/.config/alacritty/themes/catppuccin_macchiato.yaml
+  # - ~/.config/alacritty/themes/catppuccin_frappe.yaml
+  # - ~/.config/alacritty/themes/catppuccin_latte.yaml
+  # - ~/.config/alacritty/themes/catppuccin_mocha.yaml
   # - ~/.config/alacritty/themes/gruvbox_dark.yml
 
 # Any items in the `env` entry below will be added as
@@ -130,7 +134,7 @@ font:
     #   - (Windows) Consolas
     # family: "MesloLGS NF"
     # family: "FiraCode Nerd Font Mono"
-    family: "JetBrainsMono NF"
+    family: "JetBrainsMono Nerd Font"
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -145,6 +149,7 @@ font:
 
     # The `style` can be specified to pick a specific face.
     style: Bold
+    family: "JetBrainsMono Nerd Font"
 
   # Italic font face
   italic:
