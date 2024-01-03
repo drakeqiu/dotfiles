@@ -1,10 +1,14 @@
-require("user.options")
-require("user.lazy")
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VeryLazy",
-  callback = function()
-    require("user.autocmds")
-    require("user.keymaps")
-  end,
-})
+-- require("usr.base")
+-- require("usr.lazy")
+-- require("colorscheme")
+-- -- require("autocmds")
+-- -- require("keymap")
+-- 
+--  vim.api.nvim_create_autocmd("User", {
+--    pattern = "VeryLazy",
+--    callback = function()
+--      require("autocmds")
+--      require("keymap")
+--    end,
+--  })
+require("config.lazy")

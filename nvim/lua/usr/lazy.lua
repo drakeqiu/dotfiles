@@ -1,3 +1,4 @@
+
 -- Install lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -19,8 +20,8 @@ require("lazy").setup({
 
   },
   default = { lazy = true, version = false },
-  install = { colorscheme = { "gruvbox" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  install = { colorscheme = {  "catppuccin" } },
+  checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins

@@ -1,11 +1,45 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.g.tex_flavor = "latex"
+-- vim.g.tex_flavor = "latex"
 
 local opt = vim.opt
 local bo = vim.bo
 local wo = vim.wo
 local indent = 2
+
+-------------------------------------- options ------------------------------------------
+opt.laststatus = 3 -- global statusline
+opt.showmode = false       -- Dont show mode since we have a status line
+
+opt.clipboard:append("unnamedplus") -- Sync with system clipboard
+opt.cursorline = true -- Enable highlighting of the current line
+
+-- Indenting
+opt.expandtab = true                -- Use spaces instead of tabs
+opt.shiftwidth = indent             -- Size of an indent
+opt.smartindent = true              -- Insert indents automatically
+opt.softtabstop = indent
+opt.tabstop = indent
+
+opt.fillchars = { eob = " " }
+opt.ignorecase = true
+opt.smartcase = true     -- Don't ignore case with capitalse
+opt.mouse = "c"                     -- Disable mouse mode
+
+-- Numbers
+opt.number = true          -- Print line number
+opt.numberwidth = 2
+opt.ruler = false
+
+-- disable nvim intro
+-- opt.shortmess:append({ W = true, I = true, c = true })
+opt.shortmess:append "sI"
+
+opt.signcolumn = "yes"
+opt.splitbelow = true               -- Put new windows below current
+opt.splitright = true               -- Put new windows right of current
+opt.termguicolors = true -- True color support
+opt.timeoutlen = 400 -- Set wait time
 
 opt.backup = false
 opt.autowrite = true
@@ -21,23 +55,16 @@ opt.fileencoding = "utf-8"
 
 opt.autoindent = true
 opt.inccommand = "nosplit" -- Preview incremental substitute
-opt.laststatus = 0
 opt.list = true            -- Show some invisible characters(tabs...)
-opt.number = true          -- Print line number
 opt.pumblend = 10          -- Popup blend
 opt.pumheight = 10         -- Maximum number of entires in a popup
 opt.relativenumber = true  -- Relative line numbers
 opt.scrolloff = 4          -- Lines of context
 opt.shiftround = true      -- Round indent
-opt.showmode = false       -- Dont show mode since we have a status line
 opt.sidescrolloff = 8      -- Columns of context
 opt.showcmd = false
 opt.linebreak = true
-opt.numberwidth = 4
-wo.signcolumn = "no"
 opt.wrap = false      -- Disable line wrap
-opt.ruler = true
-opt.cursorline = true -- Enable highlighting of the current line
 opt.showtabline = 2
 opt.equalalways = true
 opt.syntax = "on"
@@ -48,28 +75,15 @@ opt.pumheight = 10
 opt.undofile = true
 opt.undolevels = 10000
 opt.updatetime = 200 -- Save swap file and trigger CursorHold
-opt.timeoutlen = 500 -- Set wait time
 
-opt.softtabstop = indent
-opt.tabstop = indent
-opt.shiftwidth = indent             -- Size of an indent
-opt.expandtab = true                -- Use spaces instead of tabs
 opt.autoindent = true
-opt.smartindent = true              -- Insert indents automatically
 
-opt.mouse = "c"                     -- Disable mouse mode
-opt.clipboard:append("unnamedplus") -- Sync with system clipboard
 opt.backspace = "indent,eol,start"  -- backspace
 
-opt.splitbelow = true               -- Put new windows below current
-opt.splitright = true               -- Put new windows right of current
 
 opt.hlsearch = true
 opt.incsearch = true
-opt.ignorecase = true
-opt.smartcase = true     -- Don't ignore case with capitalse
 
-opt.termguicolors = true -- True color support
 opt.signcolumn = "yes"
 
 -- opt.spell = true -- Enable spell check
@@ -82,7 +96,6 @@ opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.foldlevel = 20
 
-opt.shortmess:append({ W = true, I = true, c = true })
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"

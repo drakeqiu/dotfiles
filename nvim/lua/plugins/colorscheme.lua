@@ -1,43 +1,45 @@
 return {
+  -- catppuccin
   {
-    "ellisonleao/gruvbox.nvim",
-    lazy = false,
-    priority = 1000,
+    "catppuccin/nvim",
+    lazy = true,
+    name = "catppuccin",
     opts = {
-      undercurl = true,
-      underline = true,
-      bold = true,
-      italic = {
-        strings = true,
-        comments = true,
-        operators = false,
-        folds = true,
+      integrations = {
+        aerial = true,
+        alpha = true,
+        cmp = true,
+        dashboard = true,
+        flash = true,
+        gitsigns = true,
+        headlines = true,
+        illuminate = true,
+        indent_blankline = { enabled = true },
+        leap = true,
+        lsp_trouble = true,
+        mason = true,
+        markdown = true,
+        mini = true,
+        native_lsp = {
+          enabled = true,
+          underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+          },
+        },
+        navic = { enabled = true, custom_bg = "lualine" },
+        neotest = true,
+        neotree = true,
+        noice = true,
+        notify = true,
+        semantic_tokens = true,
+        telescope = true,
+        treesitter = true,
+        treesitter_context = true,
+        which_key = true,
       },
-      strikethrough = true,
-      invert_selection = false,
-      invert_signs = false,
-      invert_tabline = false,
-      invert_intend_guides = false,
-      inverse = true, -- invert background for search, diffs, statuslines and errors
-      contrast = "", -- can be "hard", "soft" or empty string
-      palette_overrides = {},
-      overrides = {},
-      dim_inactive = false,
-      transparent_mode = false,
     },
-    config = true,
-    -- config = function()
-    -- vim.cmd("colorscheme gruvbox")
-    -- vim.cmd([[colorscheme gruvbox]])
-    -- end,
-    init = function()
-      vim.o.background = "dark" -- or "light" for light mode
-      vim.o.background = "dark"
-      vim.opt.termguicolors = true
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_better_performance = 1
-      -- vim.cmd([[colorscheme gruvbox-material]])
-      vim.cmd([[colorscheme gruvbox]])
-    end,
   },
 }
