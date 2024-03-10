@@ -20,10 +20,14 @@
     ~/.p10k-bubbles.zsh: themes/p10k-bubbles.zsh
     ~/.p10k-tony-lambiris.zsh: themes/p10k-tony-lambiris.zsh
     ~/.p10k.zsh: themes/p10k.zsh
-    ~/.config/nvim: nvim
+    # ~/.config/nvim: nvim
     ~/.config/alacritty: alacritty
-    ~/.fzf:
+    ~/.config/wezterm: wezterm
+    ~/.config/starship.toml: starship.toml
     ~/.lua-format:
+    ~/.config/yabai: yabai
+    ~/.config/skhd: skhd
+
 
 - shell:
     - git submodule sync --recursive
