@@ -40,3 +40,4 @@ alias kubectl=kubecolor
 #alias k=kubectl
 alias k=kubecolor
 complete -F __start_kubectl k
+

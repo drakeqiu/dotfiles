@@ -1,7 +1,7 @@
 
 # Keybindings
 bindkey -e
-bindkey ',' autosuggest-accept
+bindkey '^]' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
@@ -24,3 +24,4 @@ zstyle ':completion.*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion.*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza -1 --color=always $realpath'
+
